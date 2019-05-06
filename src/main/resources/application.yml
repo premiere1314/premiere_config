@@ -1,0 +1,28 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: PREMIERE-CONFIG
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/Premiere_simple/premiere-config.git
+          username: '1836971972@qq.com'
+          password: 'zhang0.1026'
+  rabbitmq:
+    host: Premiere.ltd
+    username: 'admin'
+    password: '1234'
+eureka:
+  client:
+    service-url:
+      defaultZone: http://Premiere.ltd:8761/eureka
+  instance:
+    #服务名称的修改
+    instance-id: ${spring.application.name}:${server.port}:@project.version@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
